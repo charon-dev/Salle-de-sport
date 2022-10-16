@@ -1,0 +1,12 @@
+C:\Users\acer\Desktop\Projects\P-SalleDeSport\SalleDeSport\SalleDeSport.Utility\bin\Debug\net6.0\SalleDeSport.Utility.deps.json
+C:\Users\acer\Desktop\Projects\P-SalleDeSport\SalleDeSport\SalleDeSport.Utility\bin\Debug\net6.0\SalleDeSport.Utility.dll
+C:\Users\acer\Desktop\Projects\P-SalleDeSport\SalleDeSport\SalleDeSport.Utility\bin\Debug\net6.0\SalleDeSport.Utility.pdb
+C:\Users\acer\Desktop\Projects\P-SalleDeSport\SalleDeSport\SalleDeSport.Utility\obj\Debug\net6.0\SalleDeSport.Utility.csproj.AssemblyReference.cache
+C:\Users\acer\Desktop\Projects\P-SalleDeSport\SalleDeSport\SalleDeSport.Utility\obj\Debug\net6.0\SalleDeSport.Utility.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\acer\Desktop\Projects\P-SalleDeSport\SalleDeSport\SalleDeSport.Utility\obj\Debug\net6.0\SalleDeSport.Utility.AssemblyInfoInputs.cache
+C:\Users\acer\Desktop\Projects\P-SalleDeSport\SalleDeSport\SalleDeSport.Utility\obj\Debug\net6.0\SalleDeSport.Utility.AssemblyInfo.cs
+C:\Users\acer\Desktop\Projects\P-SalleDeSport\SalleDeSport\SalleDeSport.Utility\obj\Debug\net6.0\SalleDeSport.Utility.csproj.CoreCompileInputs.cache
+C:\Users\acer\Desktop\Projects\P-SalleDeSport\SalleDeSport\SalleDeSport.Utility\obj\Debug\net6.0\SalleDeSport.Utility.dll
+C:\Users\acer\Desktop\Projects\P-SalleDeSport\SalleDeSport\SalleDeSport.Utility\obj\Debug\net6.0\refint\SalleDeSport.Utility.dll
+C:\Users\acer\Desktop\Projects\P-SalleDeSport\SalleDeSport\SalleDeSport.Utility\obj\Debug\net6.0\SalleDeSport.Utility.pdb
+C:\Users\acer\Desktop\Projects\P-SalleDeSport\SalleDeSport\SalleDeSport.Utility\obj\Debug\net6.0\ref\SalleDeSport.Utility.dll

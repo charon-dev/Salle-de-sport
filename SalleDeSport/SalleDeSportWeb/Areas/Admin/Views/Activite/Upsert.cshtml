@@ -1,0 +1,67 @@
+﻿@model SalleDeSport.Models.Activite
+
+<form method="post" asp-action="Upsert" enctype="multipart/form-data">
+    <input asp-for="@Model.Id" hidden/>
+    <input asp-for="@Model.ImgUrl" hidden/>
+
+    <div class="row">
+        <div class="col-10">
+            <div class="border p-3 mt-4 row">
+                <div class="col-12 pb-2">
+                    <h2 class="text-primary">@(Model.Id!=0?"Modifier": "Ajouter") une activité</h2>
+                    <hr />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="@Model.Nom"></label>
+                    <input  asp-for="@Model.Nom" class="form-control"/>
+                    <span asp-validation-for="@Model.Nom" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="@Model.ImgUrl"></label>
+                    <input id="UploadBox" type="file" name="file" class="form-control"/>
+                </div>
+                <div class="col-12">
+                    @if (Model.Id != 0)
+                    {
+                        <button type="submit" class="btn btn-primary" style="width:150px" >Modifier</button>
+                    }
+                    else
+                    {
+                        <button type="submit" class="btn btn-primary" style="width:150px">Ajouter</button>
+                    }
+                    <a asp-controller="Activite" asp-action="Index" class="btn btn-secondary" style="width:150px">
+                        Retour à la liste 
+                    </a>
+                </div>
+        
+            </div>
+        </div>
+        <div class="col-2 mt-4">
+            <img src="@Model.ImgUrl"
+                style="width: 100%;border-radius:5px;border:1px solid #bbb9b9"/>
+        </div>
+    </div>
+
+</form>
+
+@section Scripts{
+    @{
+    <partial name="_ValidationScriptsPartial"/>
+    }
+    <script>
+        function ValidateInput(){
+            if (document.getElementById("UploadBox").value == "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Pleas upload an Image!',
+                });
+                return false;
+            }
+            return true;
+        }
+    </script>
+}
+
+
+

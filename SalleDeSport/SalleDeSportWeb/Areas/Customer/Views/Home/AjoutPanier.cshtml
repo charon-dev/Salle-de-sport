@@ -1,0 +1,39 @@
+﻿@model SalleDeSport.Models.Chariot
+
+<form method="post">
+        <input hidden asp-for="AbonnementId"/>
+        <div class="card  container pt-4">
+            <div class="card-header bg-dark text-light ml-0  row ">
+                <div class="col-12 col-md-6">
+                    <h1 class="text-light-50">Abonnement @Model.Abonnement.Nom</h1>
+                </div>
+            </div>
+            <div class="card-body row container">
+                <div class="container rounded p-2">
+                    <div class="row">
+                        <div class="col-8 col-lg-8">
+                            <div class="row pl-2">
+                                <h5 class="text-muted pb-2">Durée: @Model.Abonnement.Duree</h5>
+                            </div>
+                            <div class="row pl-2">
+                                <h5 class="text-muted pb-2">Description:@Html.Raw(@Model.Abonnement.Description)</h5>
+                            </div>
+                            <div class="row pl-2">
+                                <h5 class="text-muted pb-2">Prix: @Model.Abonnement.Prix DH</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-12 col-md-6 pb-1">
+                        <a class="btn btn-warning form-control " style="height:50px;" asp-action="Index">Retour</a>
+                    </div>
+                    <div class="col-12 col-md-6 pb-1">
+                        <button type="submit" value="Ajouter au chariot" class="btn btn-dark form-control" style="height:50px;">Ajouter au chariot</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</form>

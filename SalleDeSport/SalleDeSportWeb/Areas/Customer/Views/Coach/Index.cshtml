@@ -1,0 +1,27 @@
+﻿@model  IEnumerable<SalleDeSport.Models.Coach> 
+
+<h1 class="my-4">Nos Coachs</h1>
+<hr />
+<p class="my-4 text-center">Il n'y a aucune limite à ce dont vous êtes capable, physiquement et mentalement. La limite est une question de persévérance. Le but est de vous pousser au-delà de votre limite individuelle.<br /><br />
+Nous croyons que chaque personne a besoin d'une formation unique pour ses capacités personnelles. Nos entraîneurs sont tous certifiés et capables de s'adapter à vos besoins, que vous soyez aux prises avec une blessure ou un problème de santé, que vous soyez enceinte ou post-partum ou que vous recherchiez simplement le défi ultime. Il y a toujours moyen de s'entraîner dur et d'obtenir des résultats.<br /><br />
+Nos coachs proposent une variété d'entraînements avec des mouvements simples, efficaces et sûrs, quel que soit votre niveau. Nous donnons la priorité à la forme et à la biomécanique appropriées avec des instructions claires. Notre objectif est de vous faire sentir fort et confiant en vous, quel que soit votre niveau.<br /><br />
+Nous sommes ravis de vous aider à trouver votre limite et à la dépasser. Maintenant, faisons-le !</p>
+
+<div class="row my-4 h-100 d-flex align-items-center justify-content-center">
+    @foreach (var Coach in Model)
+    {
+        <div class="row my-2">
+            <div class="col-6 mb-3">
+                <img src="@Coach.ImgUrl" class="rounded w-100">
+            </div>
+            <div class="col-6 mt-5" style="background-color:#eee">
+                <h3 class="text-primary">@Coach.Nom @Coach.Prenom</h3>
+                <small>Spécialité : @Coach.Activite.Nom</small>
+                <p>@Html.Raw(@Coach.Description)</p>
+                <p><i class="bi bi-telephone"></i> : @Coach.NumeroTelephone</p>
+                <p><i class="bi bi-envelope-open"></i> : <a href="mailto:@Coach.AdresseEmail" style="text-decoration:none">@Coach.AdresseEmail</a></p>
+            </div>
+        </div>
+        
+    }
+</div>

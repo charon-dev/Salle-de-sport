@@ -1,0 +1,101 @@
+﻿@model SalleDeSport.Models.ViewModels.CoachVM
+
+<form method="post" asp-action="Upsert" enctype="multipart/form-data">
+    <input asp-for="@Model.Coach.Id" hidden/>
+    <input asp-for="@Model.Coach.ImgUrl" hidden/>
+
+    <div class="row">
+        <div class="col-10">
+            <div class="border p-3 mt-4 row">
+                <div class="col-12 pb-2">
+                    <h2 class="text-primary">@(Model.Coach.Id!=0?"Modifier": "Ajouter") un Coach</h2>
+                    <hr />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Coach.Nom"></label>
+                    <input  asp-for="Coach.Nom" class="form-control"/>
+                    <span asp-validation-for="Coach.Nom" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Coach.Prenom"></label>
+                    <input  asp-for="Coach.Prenom" class="form-control"/>
+                    <span asp-validation-for="Coach.Prenom" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Coach.Description"></label>
+                    <textarea  asp-for="Coach.Description" class="form-control" rows="3"></textarea>
+                    <span asp-validation-for="Coach.Description" class="text-danger"></span>
+                </div>      
+                <div class="mb-3">
+                    <label asp-for="Coach.NumeroTelephone"></label>
+                    <input  asp-for="Coach.NumeroTelephone" class="form-control"/>
+                    <span asp-validation-for="Coach.NumeroTelephone" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Coach.AdresseEmail"></label>
+                    <input  asp-for="Coach.AdresseEmail" class="form-control"/>
+                    <span asp-validation-for="Coach.AdresseEmail" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Coach.ImgUrl"></label>
+                    <input id="UploadBox" type="file" name="file" class="form-control"/>
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="Coach.ActiviteId"></label>
+                    <select asp-for="Coach.ActiviteId" asp-items="@Model.ListDesActivites" class="form-select">
+                        <option disabled selected>==Sélectionner une activité==</option>
+                    </select>
+                    <span asp-validation-for="Coach.ActiviteId" class="text-danger"></span>
+                </div>
+                <div class="col-12">
+                    @if (@Model.Coach.Id != 0)
+                    {
+                        <button type="submit" class="btn btn-primary" style="width:150px" >Modifier</button>
+                    }
+                    else
+                    {
+                        <button type="submit" class="btn btn-primary" style="width:150px">Ajouter</button>
+                    }
+                    <a asp-controller="Abonnement" asp-action="Index" class="btn btn-secondary" style="width:150px">
+                        Retour à la liste 
+                    </a>
+                </div>
+        
+            </div>
+        </div>
+        <div class="col-2 mt-4">
+            <img src="Coach.ImgUrl"
+                style="width: 100%;border-radius:5px;border:1px solid #bbb9b9"/>
+        </div>
+    </div>
+
+</form>
+
+@section Scripts{
+    @{
+    <partial name="_ValidationScriptsPartial"/>
+    }
+    <script>
+        function ValidateInput(){
+            if (document.getElementById("UploadBox").value == "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Pleas upload an Image!',
+                });
+                return false;
+            }
+            return true;
+        }
+    </script>
+   <script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+    });
+  </script>
+}
+
+
+
