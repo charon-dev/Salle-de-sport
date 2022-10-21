@@ -51,25 +51,32 @@ namespace SalleDeSportWeb.Areas.Customer.Controllers
         {
             var ClaimIdentity = (ClaimsIdentity)User.Identity;
             var claim = ClaimIdentity.FindFirst(ClaimTypes.NameIdentifier);
+       
+            if(_unitOfWork.Commande.GetAll(u => u.ApplicationUserId == claim.Value).Count() == 0)
+            {
+                if(_unitOfWork.Chariot.GetAll(u=>u.ApplicationUserId== claim.Value).Count() == 0) 
+                {
+                    chariot.ApplicationUserId = claim.Value;
 
-            chariot.ApplicationUserId = claim.Value;
-
-            _unitOfWork.Chariot.Add(chariot);
-            _unitOfWork.Save();
-            TempData["Success"] = "Abonnement ajouté avec succès dans votre panier";
-
-            //var commande = _unitOfWork.Commande.GetAll(u => u.ApplicationUserId == claim.Value).Last();
-            //if (commande.DateFintAbonnement >= System.DateTime.Now)
-            //{
-            //    TempData["error"] = "Vous avez deja un abonnement";
-
-            //}
-            //else
-            //{
+                    _unitOfWork.Chariot.Add(chariot);
+                    _unitOfWork.Save();
+                    TempData["Success"] = "Abonnement ajouté avec succès dans votre panier";
+                }
+                else
+                {
+                    TempData["error"] = "Payez votre abonnement";
+                }
                 
-
-            //}
-
+            }
+            else
+            {
+                var commande = _unitOfWork.Commande.GetAll(u => u.ApplicationUserId == claim.Value).Last();
+                if (commande.DateFintAbonnement >= System.DateTime.Now)
+                {
+                    TempData["error"] = "Vous avez deja un abonnement";
+                }
+            }
+           
             return RedirectToAction(nameof(Index));
         }
         public IActionResult Privacy()

@@ -565,3 +565,8 @@ C:\Users\acer\Desktop\Projects\P-SalleDeSport\SalleDeSport\SalleDeSportWeb\bin\D
 C:\Users\acer\Desktop\Projects\P-SalleDeSport\SalleDeSport\SalleDeSportWeb\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
 C:\Users\acer\Desktop\Projects\P-SalleDeSport\SalleDeSport\SalleDeSportWeb\bin\Debug\net6.0\Stripe.net.dll
 C:\Users\acer\Desktop\Projects\P-SalleDeSport\SalleDeSport\SalleDeSportWeb\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Google.dll
+C:\Users\acer\Desktop\Projects\P-SalleDeSport\SalleDeSport\SalleDeSportWeb\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\acer\Desktop\Projects\P-SalleDeSport\SalleDeSport\SalleDeSportWeb\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\acer\Desktop\Projects\P-SalleDeSport\SalleDeSport\SalleDeSportWeb\bin\Debug\net6.0\refs\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\acer\Desktop\Projects\P-SalleDeSport\SalleDeSport\SalleDeSportWeb\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Core.dll
+C:\Users\acer\Desktop\Projects\P-SalleDeSport\SalleDeSport\SalleDeSportWeb\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Stores.dll
