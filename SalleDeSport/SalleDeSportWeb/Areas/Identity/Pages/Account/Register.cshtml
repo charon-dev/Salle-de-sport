@@ -8,11 +8,11 @@
 <div class="py-4 my-4">
      <div asp-validation-summary="ModelOnly" class="text-danger"></div>
      <div class="row form-group">
-         <div class="col-8 offset-2">
-             <div class="card">
+        <div class="col-8 offset-2  d-flex justify-content-center flex-nowrap">
+            <div class="card " style="width:fit-content">
                  <div class="card-body px-lg-5 pt-4">
                      <form autocomplete="off" id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-                         <h3 class="col-12 text-success text-center py-4">
+                         <h3 class="col-12  text-center py-4">
                             @if (User.IsInRole(SD.Role_Admin))
                             {
                                 <strong>Register a User account</strong>
@@ -22,6 +22,48 @@
                                 <strong>S'inscrire</strong>
                             }
                         </h3>
+                        <p class="text-center">Inscriver vous pour profiter de nos abonnements.</p>
+                        @if (!User.IsInRole(SD.Role_Admin))
+                        {
+                            <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+
+                                <div class="row d-flex justify-content-center flex-nowrap">
+                                    <p>
+                                        @foreach (var provider in Model.ExternalLogins)
+                                        {
+                                            <div class="col-12">
+                                                @if (provider.Name.ToLower().Contains("facebook"))
+                                                {
+                                                    <button type="submit" class="btn btn-block facebook-btn form-control" name="provider"
+                                                value="@provider.Name"
+                                                title="Log in using your @provider.DisplayName account">
+                                                        <i class="bi bi-facebook"></i> @provider.DisplayName
+                                                    </button>
+                                                }
+                                                else
+                                                {
+                                                    @if (provider.Name.ToLower().Contains("google"))
+                                                    {
+                                                        <button type="submit" class="btn btn-block form-control" name="provider"
+                                                            value="@provider.Name"
+                                                            title="Log in using your @provider.DisplayName account"
+                                                            style="background-color: #dd4b39;color:white;">
+                                                            <i class="bi bi-google"></i> Se connecter avec @provider.DisplayName
+                                                        </button>
+                                                    }
+                                                    else
+                                                    {
+                                                        <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                                    }
+                                                }
+
+                                            </div>
+
+                                        }
+                                    </p>
+                                </div>
+                            </form>
+                        }
                         <hr />
                         <div class="py-2">
                             <input placeholder="Email" asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
@@ -69,55 +111,10 @@
                             </div>
                         }
                         <div class="py-2">
-                            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-success">créer un compte</button>
+                            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-info">créer un compte</button>
                         </div>
                      </form>
 
-                    @if (!User.IsInRole(SD.Role_Admin))
-                    {
-                        <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                            <div class="row my-3 text-center">
-                                <hr class="col-5 mt-2"/>
-                                <p class="col-2">OU</p>
-                                <hr class="col-5 mt-2"/>
-                            </div>
-                            
-                            <div class="row">
-                                <p>
-                                    @foreach (var provider in Model.ExternalLogins)
-                                    {
-                                        <div class="col-12">
-                                            @if (provider.Name.ToLower().Contains("facebook"))
-                                            {
-                                                <button type="submit" class="btn btn-block facebook-btn form-control" name="provider"
-                                                value="@provider.Name" 
-                                                title="Log in using your @provider.DisplayName account">
-                                                    <i class="bi bi-facebook"></i> @provider.DisplayName
-                                                </button>
-                                            }
-                                            else
-                                            {
-                                                @if (provider.Name.ToLower().Contains("google"))
-                                                {
-                                                    <button type="submit" class="btn btn-block form-control" name="provider"
-                                                    value="@provider.Name" 
-                                                    title="Log in using your @provider.DisplayName account"
-                                                    style="background-color: #dd4b39;color: white;">
-                                                       <i class="bi bi-google"></i> @provider.DisplayName
-                                                    </button>
-                                                }
-                                                else{
-                                                <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                                }
-                                            }
-                                            
-                                        </div>
-                                        
-                                    }
-                                </p>
-                            </div>
-                        </form>
-                    }
                 </div>
              </div>
          </div>
