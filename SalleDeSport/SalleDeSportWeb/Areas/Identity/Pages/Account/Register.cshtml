@@ -11,11 +11,11 @@
         <div class="col-8 offset-2  d-flex justify-content-center flex-nowrap">
             <div class="card " style="width:fit-content">
                  <div class="card-body px-lg-5 pt-4">
-                     <form autocomplete="off" id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                     
                          <h3 class="col-12  text-center py-4">
                             @if (User.IsInRole(SD.Role_Admin))
                             {
-                                <strong>Register a User account</strong>
+                                <strong>Inscrire un utilisateur</strong>
                             }
                             else
                             {
@@ -65,6 +65,7 @@
                             </form>
                         }
                         <hr />
+                    <form autocomplete="off" id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
                         <div class="py-2">
                             <input placeholder="Email" asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
                             <span asp-validation-for="Input.Email" class="text-danger"></span>
