@@ -36,7 +36,7 @@
                 </li>
                 <li class="nav-item">
                    <a class="nav-link text-light" asp-area="Customer" asp-controller="Chariot" asp-action="Index">
-                       @await Component.InvokeAsync("Chariot")
+                       <i class="bi bi-cart"></i>
                    </a>
                 </li>
                 <li class="nav-item">
@@ -50,7 +50,7 @@
                             <a class="nav-link text-dark" asp-area="Admin" asp-controller="Coach" asp-action="Index">Coach</a>
                             <a class="nav-link text-dark" asp-area="Admin" asp-controller="Activite" asp-action="Index">Activite</a>
                             <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">Create user</a>
+                                    <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">créer un utilisateur</a>
                           </div>
                         </li>
                 }

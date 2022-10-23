@@ -35,17 +35,6 @@ builder.Services.ConfigureApplicationCookie(options =>
 builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
 
 
-//Enable session in our application
-builder.Services.AddDistributedMemoryCache();
-builder.Services.AddSession(options =>
-{
-    options.IdleTimeout = TimeSpan.FromMinutes(100);
-    options.Cookie.HttpOnly = true;
-    options.Cookie.IsEssential = true;
-}
-);
-
-
 builder.Services.AddAuthentication().AddGoogle(options =>
 {
     options.ClientId = "193490527728-e5r4qoev59t2qkhpsiv28tla4eb9j1a3.apps.googleusercontent.com";
@@ -70,7 +59,6 @@ app.UseRouting();
 StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe:SecretKey").Get<string>();
 app.UseAuthentication();;
 
-app.UseSession();
 
 app.UseAuthorization();
 
