@@ -1,25 +1,35 @@
 ﻿@model  IEnumerable<SalleDeSport.Models.Coach> 
+@*<div class="sv">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#292b2c" fill-opacity="30" d="M0,288L15,288C30,288,60,288,90,261.3C120,235,150,181,180,149.3C210,117,240,107,270,128C300,149,330,203,360,234.7C390,267,420,277,450,266.7C480,256,510,224,540,186.7C570,149,600,107,630,80C660,53,690,43,720,37.3C750,32,780,32,810,37.3C840,43,870,53,900,80C930,107,960,149,990,144C1020,139,1050,85,1080,101.3C1110,117,1140,203,1170,245.3C1200,288,1230,288,1260,266.7C1290,245,1320,203,1350,208C1380,213,1410,267,1425,293.3L1440,320L1440,0L1425,0C1410,0,1380,0,1350,0C1320,0,1290,0,1260,0C1230,0,1200,0,1170,0C1140,0,1110,0,1080,0C1050,0,1020,0,990,0C960,0,930,0,900,0C870,0,840,0,810,0C780,0,750,0,720,0C690,0,660,0,630,0C600,0,570,0,540,0C510,0,480,0,450,0C420,0,390,0,360,0C330,0,300,0,270,0C240,0,210,0,180,0C150,0,120,0,90,0C60,0,30,0,15,0L0,0Z"></path>
+    </svg>
+</div>*@
+  
 
-<h1 class="my-4">Nos Coachs</h1>
-<hr />
-<p class="my-4 text-center">Il n'y a aucune limite à ce dont vous êtes capable, physiquement et mentalement. La limite est une question de persévérance. Le but est de vous pousser au-delà de votre limite individuelle.<br /><br />
-Nous croyons que chaque personne a besoin d'une formation unique pour ses capacités personnelles. Nos entraîneurs sont tous certifiés et capables de s'adapter à vos besoins, que vous soyez aux prises avec une blessure ou un problème de santé, que vous soyez enceinte ou post-partum ou que vous recherchiez simplement le défi ultime. Il y a toujours moyen de s'entraîner dur et d'obtenir des résultats.<br /><br />
-Nos coachs proposent une variété d'entraînements avec des mouvements simples, efficaces et sûrs, quel que soit votre niveau. Nous donnons la priorité à la forme et à la biomécanique appropriées avec des instructions claires. Notre objectif est de vous faire sentir fort et confiant en vous, quel que soit votre niveau.<br /><br />
-Nous sommes ravis de vous aider à trouver votre limite et à la dépasser. Maintenant, faisons-le !</p>
+<div class="text-center my-5">
+    <h1 class="my-4">Nos Coachs</h1>
+    <p class="my-4">
+        Il n'y a aucune limite à ce dont vous êtes capable, physiquement et mentalement. La limite est une question de persévérance. Le but est de vous pousser au-delà de votre limite individuelle.<br /><br />
+        Nous croyons que chaque personne a besoin d'une formation unique pour ses capacités personnelles. Nos entraîneurs sont tous certifiés et capables de s'adapter à vos besoins, que vous soyez aux prises avec une blessure ou un problème de santé, que vous soyez enceinte ou post-partum ou que vous recherchiez simplement le défi ultime. Il y a toujours moyen de s'entraîner dur et d'obtenir des résultats.<br /><br />
+        Nos coachs proposent une variété d'entraînements avec des mouvements simples, efficaces et sûrs, quel que soit votre niveau. Nous donnons la priorité à la forme et à la biomécanique appropriées avec des instructions claires. Notre objectif est de vous faire sentir fort et confiant en vous, quel que soit votre niveau.<br /><br />
+        Nous sommes ravis de vous aider à trouver votre limite et à la dépasser. Maintenant, faisons-le !
+    </p>
+</div>
 
-<div class="row my-4 h-100 d-flex align-items-center justify-content-center">
+
+<div class="row my-5 h-100 d-flex align-items-center justify-content-center">
     @foreach (var Coach in Model)
     {
         <div class="row my-2">
             <div class="col-6 mb-3">
                 <img src="@Coach.ImgUrl" class="rounded w-100">
             </div>
-            <div class="col-6 mt-5" style="background-color:#eee">
-                <h3 class="text-primary">@Coach.Nom @Coach.Prenom</h3>
+            <div class="col-6 mt-5 p-4" style="border-radius:15px;background-color:#EEE">
+                <h3 class="text-danger">@Coach.Nom @Coach.Prenom</h3>
                 <small>Spécialité : @Coach.Activite.Nom</small>
                 <p>@Html.Raw(@Coach.Description)</p>
                 <p><i class="bi bi-telephone"></i> : @Coach.NumeroTelephone</p>
-                <p><i class="bi bi-envelope-open"></i> : <a href="mailto:@Coach.AdresseEmail" style="text-decoration:none">@Coach.AdresseEmail</a></p>
+                <p><i class="bi bi-envelope-open"></i> : <a href="mailto:@Coach.AdresseEmail" style="text-decoration:none;font-weight:bold;color:black">@Coach.AdresseEmail</a></p>
             </div>
         </div>
         

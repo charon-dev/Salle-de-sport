@@ -1,0 +1,16 @@
+﻿#Vp {
+    transition: all 0,5s linear;
+    color:black
+}
+
+#Vp:hover {
+        color: red;
+        border-bottom: 3px red solid;
+}
+
+.sv {
+    position: relative;
+    left: calc(-50vw + 50%);
+    width: 100vw;
+
+}

@@ -1,12 +1,20 @@
 ﻿@model SalleDeSport.Models.ViewModels.HomeVM
 
-<div class="row mb-3">
+<div class="row my-5">
     <div class="col-12">
         <img src="~/images/ProjectImg/HomePageIntro.jpg" class="w-100 rounded"/>
     </div>   
 </div>
-<div style="">
-    <div class="row my-4" style="">
+
+<div class="row my-5" style="background-color: #eee;
+     padding: 50px;
+    position: relative;
+    left: calc(-50vw + 50%);
+    width: 100vw;
+    text-align: center;
+    color:black;
+     ">
+    <div class="row">
         <div class="col-lg-3 col-md-6">
             <h3>À propos de notre salle de sport</h3>
             <hr />
@@ -15,12 +23,12 @@
             </p>
         </div>
         <div class="col">
-            <img src="~/images/ProjectImg/AboutGym.png" class="w-100 rounded"/>
+            <img src="~/images/ProjectImg/AboutGym.png" class="w-100 rounded" />
         </div>
     </div>
 </div>
 
-<div class="row my-4">
+<div class="row my-5">
     <h3>Nos activités</h3>
     <p>Notre salle vous propose les activités suivantes :</p>
     @foreach (var Activite in @Model.ActiviteList)
@@ -32,7 +40,17 @@
                         <img src="@Activite.ImgUrl" class="card-img-top rounded"/>
                         <div class="card-body">
                             <div class="pl-1">
-                                <p class="card-title h5 text-secondary text-center"><strong>@Activite.Nom</strong></p>                             
+                                @if(Activite.Nom=="Musculation"){
+                                    <p class="card-title h5 text-center" style="color:yellow"><strong>@Activite.Nom 🏋️‍♂️</strong></p>
+                                }
+                                else if (Activite.Nom == "Boxe")
+                                {
+                                    <p class="card-title h5 text-danger text-center"><strong>@Activite.Nom 🥊</strong></p>
+                                }
+                                else if (Activite.Nom == "Natation")
+                                {
+                                    <p class="card-title h5 text-primary text-center"><strong>@Activite.Nom 🏊‍♂️</strong></p>
+                                }
                             </div>
                         </div>                       
                     </div>
@@ -42,47 +60,49 @@
         
     }
 </div>
-<div class="row my-4">
-    <h3>Nos coachs</h3>
-    <p>Voici nos coachs expert qui vous aideront à réaliser vos activités.</p>
-    <br />
+<div class="row my-5" style="background-color: #eee;
+     padding: 50px;
+    position: relative;
+    left: calc(-50vw + 50%);
+    width: 100vw;
+    text-align: center;
+    color:black;
+     ">
+    <div class="row">
+        <h3>Nos coachs</h3>
+        <p>Voici nos coachs expert qui vous aideront à réaliser vos activités.</p>
+        <br />
     
-       <div class="col-lg-4 col-md-4">
-                <div class="row p-2">
-                    <img src="@Model.coachMusculation.ImgUrl" class="img-fluid rounded-circle"/>
-                    <br />
-                    <h4 class="text-center">@Model.coachMusculation.Nom @Model.coachMusculation.Prenom</h4>
-                    <p class="text-center">@Model.coachMusculation.Activite.Nom</p>
-                </div>               
-       </div> 
-       <div class="col-lg-4 col-md-4">
-                <div class="row p-2">
-                    <img src="@Model.coachBoxe.ImgUrl" class="img-fluid rounded-circle"/>
-                    <br />
-                    <h4 class="text-center">@Model.coachBoxe.Nom @Model.coachBoxe.Prenom</h4>
-                    <p class="text-center">@Model.coachBoxe.Activite.Nom</p>
-                </div>               
-       </div> 
-@*       <div class="col-lg-4 col-md-4">
-                <div class="row p-2">
-                    <img src="@Model.coachNatation.ImgUrl" class="img-fluid rounded-circle"/>
-                    <br />
-                    <h4 class="text-center">@Model.coachNatation.Nom @Model.coachNatation.Prenom</h4>
-                    <p class="text-center">@Model.coachNatation.Activite.Nom</p>
-                </div>               
-       </div> *@
+           <div class="col-lg-4 col-md-4">
+                    <div class="row p-2">
+                        <img src="@Model.coachMusculation.ImgUrl" class="img-fluid rounded-circle"/>
+                        <br />
+                        <h4 class="text-center">@Model.coachMusculation.Nom @Model.coachMusculation.Prenom</h4>
+                        <p class="text-center">@Model.coachMusculation.Activite.Nom</p>
+                    </div>               
+           </div> 
+           <div class="col-lg-4 col-md-4">
+                    <div class="row p-2">
+                        <img src="@Model.coachBoxe.ImgUrl" class="img-fluid rounded-circle"/>
+                        <br />
+                        <h4 class="text-center">@Model.coachBoxe.Nom @Model.coachBoxe.Prenom</h4>
+                        <p class="text-center">@Model.coachBoxe.Activite.Nom</p>
+                    </div>               
+           </div> 
     
-    <div class="col-lg-4 col-md-4">
-        <div class="row p-2">
-            <img src="~/images/Black (1).jpg" class="img-fluid rounded-circle"/>
-            <br />
-            <h4 class="text-center mt-2"> 
-                <a class="text-info" style="cursor:pointer;text-decoration:none" asp-area="customer" asp-controller="Coach" asp-action="Index">voir plus</a> 
-            </h4>
-        </div>               
-    </div>  
+        <div class="col-lg-4 col-md-4">
+            <div class="row p-2">
+                <img src="~/images/ListCoachs.png" class="img-fluid rounded-circle"/>
+                <br />
+                <h4 class="text-center mt-2"> 
+                    <a id="Vp" style="cursor:pointer;text-decoration:none;" asp-area="customer" asp-controller="Coach" asp-action="Index">voir plus</a> 
+                </h4>
+            </div>               
+        </div>  
+    </div>
 </div>
-<div class="row my-4 h-100 d-flex align-items-center justify-content-center">
+
+<div class="row my-5 h-100 d-flex align-items-center justify-content-center">
     <h3>Nos Abonnements</h3>
     <p>Notre salle de sport vous propose les meilleurs prix pour une meilleur expérience.</p>
     @foreach (var Abonnement in @Model.AbonnementList)

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/BootswatchTheme.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SalleDeSportWeb.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/CustomStyle.css" asp-append-version="true"/>
     @*//Icons*@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     @*//Toastr*@
@@ -20,45 +21,47 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
-          <div class="container-fluid">
-            <a class="navbar-brand" asp-area="Customer" asp-controller="Home" asp-action="Index">SalleDeSportWeb</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarColor02">
-              <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                   <a class="nav-link text-light" asp-area="Customer" asp-controller="Home" asp-action="Index">Home</a>
-                </li>
-                <li class="nav-item">
-                   <a class="nav-link text-light" asp-area="Customer" asp-controller="Coach" asp-action="Index">Coachs</a>
-                </li>
-                <li class="nav-item">
-                   <a class="nav-link text-light" asp-area="Customer" asp-controller="Chariot" asp-action="Index">
-                       <i class="bi bi-cart"></i>
-                   </a>
-                </li>
-                <li class="nav-item">
-                   <a class="nav-link text-light" asp-area="Admin" asp-controller="TableauDeBord" asp-action="Index">Tableau de bord</a>
-                </li>       
-                        @if (User.IsInRole(SD.Role_Admin)) { 
-                        <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Gestion des elements</a>
-                          <div class="dropdown-menu">
-                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Abonnement" asp-action="Index">Abonnement</a>
-                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Coach" asp-action="Index">Coach</a>
-                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Activite" asp-action="Index">Activite</a>
-                            <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">créer un utilisateur</a>
-                          </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="Customer" asp-controller="Home" asp-action="Index">SalleDeSportWeb</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor02">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="Customer" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                }
-              </ul>
-              <partial name="_LoginPartial"/>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="Customer" asp-controller="Coach" asp-action="Index">Coachs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="Customer" asp-controller="Chariot" asp-action="Index">
+                                <i class="bi bi-cart"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="Admin" asp-controller="TableauDeBord" asp-action="Index">Tableau de bord</a>
+                        </li>
+                        @if (User.IsInRole(SD.Role_Admin))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Gestion des elements</a>
+                                <div class="dropdown-menu">
+                                    <a class="nav-link text-dark" asp-area="Admin" asp-controller="Abonnement" asp-action="Index">Abonnement</a>
+                                    <a class="nav-link text-dark" asp-area="Admin" asp-controller="Coach" asp-action="Index">Coach</a>
+                                    <a class="nav-link text-dark" asp-area="Admin" asp-controller="Activite" asp-action="Index">Activite</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">créer un utilisateur</a>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
             </div>
-          </div>
         </nav>
+        
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -78,6 +81,7 @@
     <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.tiny.cloud/1/gytusyr61ses25ozko5jut3nohwu6as2y7b8hhc3k6gogx07/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://kit.fontawesome.com/e07cfc4c5c.js" crossorigin="anonymous"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
