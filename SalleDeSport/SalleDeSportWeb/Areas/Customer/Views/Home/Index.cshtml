@@ -1,6 +1,6 @@
 ﻿@model SalleDeSport.Models.ViewModels.HomeVM
 
-<div class="row my-5">
+<div class="row my-5" data-aos="fade-up" data-aos-duration="2000">
     <div class="col-12">
         <img src="~/images/ProjectImg/HomePageIntro.jpg" class="w-100 rounded"/>
     </div>   
@@ -33,30 +33,56 @@
     <p>Notre salle vous propose les activités suivantes :</p>
     @foreach (var Activite in @Model.ActiviteList)
     {
-       <div class="col-lg-4 col-md-4">
-            <div class="row p-2" >
-                <div class="col-12 p-1" style="border:1px solid #36454F;border-radius:5px;">
-                    <div class="card">
-                        <img src="@Activite.ImgUrl" class="card-img-top rounded"/>
-                        <div class="card-body">
-                            <div class="pl-1">
-                                @if(Activite.Nom=="Musculation"){
-                                    <p class="card-title h5 text-center" style="color:yellow"><strong>@Activite.Nom 🏋️‍♂️</strong></p>
-                                }
-                                else if (Activite.Nom == "Boxe")
-                                {
-                                    <p class="card-title h5 text-danger text-center"><strong>@Activite.Nom 🥊</strong></p>
-                                }
-                                else if (Activite.Nom == "Natation")
-                                {
-                                    <p class="card-title h5 text-primary text-center"><strong>@Activite.Nom 🏊‍♂️</strong></p>
-                                }
+        @if (Activite.Nom == "Musculation")
+        {
+            <div class="col-lg-4 col-md-4" data-aos="fade-right" data-aos-delay="1000" data-aos-once="true">
+                <div class="row p-2">
+                    <div class="col-12 p-1" style="border:1px solid #36454F;border-radius:5px;">
+                        <div class="card">
+                            <img src="@Activite.ImgUrl" class="card-img-top rounded" />
+                            <div class="card-body">
+                                <div class="pl-1">
+                                    <p class="card-title h5 text-center" ><strong>@Activite.Nom</strong></p>
+                                </div>
                             </div>
-                        </div>                       
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        }
+        else if (Activite.Nom == "Boxe")
+        {
+            <div class="col-lg-4 col-md-4" data-aos="fade-left" data-aos-delay="500" data-aos-once="true">
+                <div class="row p-2">
+                    <div class="col-12 p-1" style="border:1px solid #36454F;border-radius:5px;">
+                        <div class="card">
+                            <img src="@Activite.ImgUrl" class="card-img-top rounded" />
+                            <div class="card-body">
+                                <div class="pl-1">
+                                    <p class="card-title h5 text-center"><strong>@Activite.Nom</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else if (Activite.Nom == "Natation"){
+            <div class="col-lg-4 col-md-4" data-aos="flip-up" data-aos-delay="1500" data-aos-once="true">
+                <div class="row p-2" >
+                    <div class="col-12 p-1" style="border:1px solid #36454F;border-radius:5px;">
+                        <div class="card">
+                            <img src="@Activite.ImgUrl" class="card-img-top rounded"/>
+                            <div class="card-body">
+                                <div class="pl-1">
+                                    <p class="card-title h5 text-center"><strong>@Activite.Nom</strong></p>
+                                </div>
+                            </div>                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
         
     }
 </div>
@@ -94,9 +120,10 @@
             <div class="row p-2">
                 <img src="~/images/ListCoachs.png" class="img-fluid rounded-circle"/>
                 <br />
-                <h4 class="text-center mt-2"> 
-                    <a id="Vp" style="cursor:pointer;text-decoration:none;" asp-area="customer" asp-controller="Coach" asp-action="Index">voir plus</a> 
-                </h4>
+                <p class="text-center mt-4"> 
+                    
+                    <a id="Vp" style="cursor:pointer;" asp-area="customer" asp-controller="Coach" asp-action="Index">voir plus</a> 
+                </p>
             </div>               
         </div>  
     </div>
@@ -107,17 +134,57 @@
     <p>Notre salle de sport vous propose les meilleurs prix pour une meilleur expérience.</p>
     @foreach (var Abonnement in @Model.AbonnementList)
     {
-       <div class="card border-info col-lg-4 col-md-4 m-3" style="max-width: 20rem;">
-           <div class="card-body text-center">
-                <p class="text-center fw-bold w-100 mt-1">
-                    @Abonnement.Nom
-                </p>   
-                <p>@Html.Raw(@Abonnement.Description)</p>
-                <h2 class="card-title">@Abonnement.Prix.ToString() DH</h2>
-                <p>(@Abonnement.Duree)</p>
-                <br />
-                <a asp-controller="Home" asp-action="AjoutPanier" class="btn btn-info" asp-route-AboId="@Abonnement.Id">Voir</a>     
-           </div>                     
-       </div>  
+        @if (Abonnement.Nom == "Normal")
+        {
+            <div class="card border-info col-lg-4 col-md-4 m-3" style="max-width: 20rem;" data-aos="zoom-in" data-aos-delay="500" data-aos-once="true">
+               <div class="card-body text-center">
+                    <p class="text-center fw-bold w-100 mt-1">
+                        @Abonnement.Nom
+                    </p>   
+                    <p>@Html.Raw(@Abonnement.Description)</p>
+                    <h2 class="card-title">@Abonnement.Prix.ToString() DH</h2>
+                    <p>(@Abonnement.Duree)</p>
+                    <br />
+                    <a asp-controller="Home" asp-action="AjoutPanier" class="btn btn-info" asp-route-AboId="@Abonnement.Id">Voir</a>     
+               </div>                     
+            </div>
+        }
+        else if (Abonnement.Nom == "Premium")
+        {
+            <div class="card border-info col-lg-4 col-md-4 m-3" style="max-width: 20rem;" data-aos="zoom-in" data-aos-delay="800" data-aos-once="true">
+                <div class="card-body text-center">
+                    <p class="text-center fw-bold w-100 mt-1">
+                        @Abonnement.Nom
+                    </p>
+                    <p>@Html.Raw(@Abonnement.Description)</p>
+                    <h2 class="card-title">@Abonnement.Prix.ToString() DH</h2>
+                    <p>(@Abonnement.Duree)</p>
+                    <br />
+                    <a asp-controller="Home" asp-action="AjoutPanier" class="btn btn-info" asp-route-AboId="@Abonnement.Id">Voir</a>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="card border-info col-lg-4 col-md-4 m-3" style="max-width: 20rem;" data-aos="zoom-in" data-aos-delay="1100" data-aos-once="true">
+                <div class="card-body text-center">
+                    <p class="text-center fw-bold w-100 mt-1">
+                        @Abonnement.Nom
+                    </p>
+                    <p>@Html.Raw(@Abonnement.Description)</p>
+                    <h2 class="card-title">@Abonnement.Prix.ToString() DH</h2>
+                    <p>(@Abonnement.Duree)</p>
+                    <br />
+                    <a asp-controller="Home" asp-action="AjoutPanier" class="btn btn-info" asp-route-AboId="@Abonnement.Id">Voir</a>
+                </div>
+            </div>
+        }
+        
     }
 </div>
+
+@section Scripts{
+    <script>
+        AOS.init();
+    </script>
+}

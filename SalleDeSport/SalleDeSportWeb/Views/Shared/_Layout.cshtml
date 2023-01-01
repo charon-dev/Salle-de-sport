@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SalleDeSportWeb</title>
+    <title>@ViewData["Title"] - My Gym</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/BootswatchTheme.css" asp-append-version="true" />
@@ -18,12 +18,13 @@
     @*//Toastr*@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
     <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="Customer" asp-controller="Home" asp-action="Index">SalleDeSportWeb</a>
+                <a class="navbar-brand" asp-area="Customer" asp-controller="Home" asp-action="Index">My Gym</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -72,7 +73,7 @@
 
     <footer class="border-top footer text-muted" style="position:absolute;bottom:0px;width:100%">
         <div class="container">
-            &copy; 2022 - SalleDeSportWeb
+            &copy; 2022 - My Gym
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -82,6 +83,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.tiny.cloud/1/gytusyr61ses25ozko5jut3nohwu6as2y7b8hhc3k6gogx07/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="https://kit.fontawesome.com/e07cfc4c5c.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

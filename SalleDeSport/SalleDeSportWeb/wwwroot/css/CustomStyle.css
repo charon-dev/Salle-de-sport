@@ -1,16 +1,25 @@
-﻿#Vp {
-    transition: all 0,5s linear;
-    color:black
-}
-
-#Vp:hover {
-        color: red;
-        border-bottom: 3px red solid;
-}
-
+﻿
 .sv {
     position: relative;
     left: calc(-50vw + 50%);
     width: 100vw;
 
 }
+:root {
+    --mainColor: black;
+}
+
+#Vp {
+    background: linear-gradient( to bottom, var(--mainColor) 0%, var(--mainColor) 100% );
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 2px 2px;
+    color: #000;
+    text-decoration: none;
+    transition: background-size .2s;
+}
+
+    #Vp:hover {
+        background-size: 4px 50px;
+        color:white;
+    }
